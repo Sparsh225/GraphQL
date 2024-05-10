@@ -28,3 +28,21 @@ query getUserbyId{
     firstName
   }
 }
+
+-----------------------------------------------------------------------------------------------------
+query getUserbyId($userid:ID!){
+  user(id:$userid){
+    id
+    firstName
+  }
+}
+
+
+--------------------------------------------------------------------------------------------------------
+mutation createUser($userNew:UserInput!){
+  user:signupUserDummy(UserNew:$userNew){
+    firstName
+    lastName
+    email
+  }
+}
