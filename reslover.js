@@ -1,4 +1,4 @@
-import { error } from "console";
+import { error, log } from "console";
 import { quotes, users } from "./fakedb.js";
 import crypto from "crypto";
 import mongoose from "mongoose";
@@ -7,6 +7,7 @@ import jwt from "jsonwebtoken";
 import { JWT_SECRET } from "./config.js";
 
 const User = mongoose.model("User"); //to use the model // if we pass the schema then we register it
+const Quote = mongoose.model("Quote");
 const resolvers = {
   Query: {
     users: () => users,
@@ -41,9 +42,19 @@ const resolvers = {
       if (!doMatch) {
         throw new Error("email or password is invalid");
       }
-      const token = jwt.sign({ userId: userSignin._id }, JWT_SECRET);
+      const token = jwt.sign({ userId: user._id }, JWT_SECRET);
+      console.log(token);
       return { token };
     },
+    createQuote: async (_, { name }, { userId }) => {
+      if (!userId) throw new Error("You must be logged in");
+      const newQuote = new Quote({
+        name,
+        by: userId,
+      });
+      await newQuote.save();
+      return "Quote saved successfully";
+    }, //3rd argument is for the middleware context usko destructure karke userId nikal denge
   },
 };
 

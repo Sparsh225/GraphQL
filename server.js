@@ -1,9 +1,9 @@
 import { ApolloServer } from "apollo-server";
 import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
 import typeDefs from "./schemaGrapQl.js";
-
+import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
-import { MONGO_URL } from "./config.js";
+import { JWT_SECRET, MONGO_URL } from "./config.js";
 
 mongoose.connect(MONGO_URL, {
   useNewUrlParser: true, // Corrected option name
@@ -26,6 +26,17 @@ import resolvers from "./reslover.js";
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context: ({ req }) => {
+    const { authorization } = req.headers;
+    //console.log(authorization);
+    if (authorization) {
+      console.log(authorization);
+      console.log(JWT_SECRET);
+      const { userId } = jwt.verify(authorization, JWT_SECRET);
+      console.log(userId);
+      return { userId };
+    }
+  }, //act as a middleware
   plugins: [ApolloServerPluginLandingPageGraphQLPlayground],
 });
 //mongodb+srv://sparshrawat34:1234@cluster0.afvs3p3.mongodb.net/graphQldb?retryWrites=true&w=majority&appName=Cluster0
