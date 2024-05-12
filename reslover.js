@@ -10,13 +10,13 @@ const User = mongoose.model("User"); //to use the model // if we pass the schema
 const Quote = mongoose.model("Quote");
 const resolvers = {
   Query: {
-    users: () => users,
-    user: (_, { _id }) => users.find((user) => user._id == _id), //_ issliye kyuki vo khud parent hai to vo undefined return karega
-    quotes: () => quotes,
-    iquote: (_, args) => quotes.filter((quote) => quote.by == args.by),
+    users: async () => await User.find({}),
+    user: async (_, { _id }) => await User.findById({ _id }), //users.find((user) => user._id == _id), //_ issliye kyuki vo khud parent hai to vo undefined return karega
+    quotes: async () => await Quote.find({}).populate("by", "_id firstName"),
+    iquote: async (_, { by }) => await Quote.find({ by }), // quotes.filter((quote) => quote.by == args.by),
   },
   User: {
-    quotes: (user) => quotes.filter((quote) => quote.by == user._id), //phele argument parent hota hai
+    quotes: async (user) => Quote.find({ by: user._id }), //quotes.filter((quote) => quote.by == user._id), //phele argument parent hota hai
   },
   Mutation: {
     signupUser: async (_, { UserNew }) => {

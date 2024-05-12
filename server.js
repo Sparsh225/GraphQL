@@ -23,20 +23,21 @@ import "./models/Quotes.js";
 
 import resolvers from "./reslover.js";
 
+const context = ({ req }) => {
+  const { authorization } = req.headers;
+  //console.log(authorization);
+  if (authorization) {
+    console.log(authorization);
+    console.log(JWT_SECRET);
+    const { userId } = jwt.verify(authorization, JWT_SECRET);
+    console.log(userId);
+    return { userId };
+  }
+}; //act as a middleware
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context: ({ req }) => {
-    const { authorization } = req.headers;
-    //console.log(authorization);
-    if (authorization) {
-      console.log(authorization);
-      console.log(JWT_SECRET);
-      const { userId } = jwt.verify(authorization, JWT_SECRET);
-      console.log(userId);
-      return { userId };
-    }
-  }, //act as a middleware
+  context,
   plugins: [ApolloServerPluginLandingPageGraphQLPlayground],
 });
 //mongodb+srv://sparshrawat34:1234@cluster0.afvs3p3.mongodb.net/graphQldb?retryWrites=true&w=majority&appName=Cluster0
