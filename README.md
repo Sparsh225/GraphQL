@@ -10,8 +10,11 @@ The Quote App is a web application that allows users to create, view, edit, and 
 - GraphQL Integration: Utilizes GraphQL Apollo Client for efficient data fetching and state management.
 - Responsive Design: The app is designed to work seamlessly across desktop, tablet, and mobile devices.
 
+![Screenshot 2024-05-16 225534](https://github.com/Sparsh225/GraphQL/assets/92641998/cadc9689-ab10-4ac3-83dc-f87e77a0b57b)
 ![Screenshot 2024-05-16 225638](https://github.com/Sparsh225/GraphQL/assets/92641998/f9e962f4-340b-41b9-a9c1-c28837cd0fce)
-![Screenshot 2024-05-16 225638](https://github.com/Sparsh225/GraphQL/assets/92641998/f9e962f4-340b-41b9-a9c1-c28837cd0fce)
+![Screenshot 2024-05-16 225606](https://github.com/Sparsh225/GraphQL/assets/92641998/78254a69-ddb4-4d16-9571-b38aff50fe6c)
+
+
 
 
 ## Technologies Used
