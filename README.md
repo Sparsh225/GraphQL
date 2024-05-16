@@ -59,5 +59,3 @@ This project is licensed under the [MIT License](LICENSE).
 - Thanks to GraphQL and Apollo for their powerful tools.
 - Hat tip to anyone whose code was used.
 
-## Contact
-For any inquiries or support, please contact [your-email@example.com].
