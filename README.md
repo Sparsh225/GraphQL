@@ -7,10 +7,12 @@ The Quote App is a web application that allows users to create, view, edit, and 
 - User Authentication: Users can sign up for an account and log in securely.
 - Create Quote: Users can create new quotes with a title and content.
 - View Quote: Users can view their existing quotes with title and content.
-- Edit Quote: Users can edit the title and content of existing quotes.
-- Delete Quote: Users can delete quotes they no longer need.
 - GraphQL Integration: Utilizes GraphQL Apollo Client for efficient data fetching and state management.
 - Responsive Design: The app is designed to work seamlessly across desktop, tablet, and mobile devices.
+
+![Screenshot 2024-05-16 225638](https://github.com/Sparsh225/GraphQL/assets/92641998/f9e962f4-340b-41b9-a9c1-c28837cd0fce)
+![Screenshot 2024-05-16 225638](https://github.com/Sparsh225/GraphQL/assets/92641998/f9e962f4-340b-41b9-a9c1-c28837cd0fce)
+
 
 ## Technologies Used
 - **Frontend:** React.js, GraphQL Apollo Client, HTML/CSS
