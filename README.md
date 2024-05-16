@@ -1,4 +1,4 @@
-Quote App
+#Quote App
 Welcome to the Quote App! This project allows users to sign up, log in, and write quotes using GraphQL Apollo for both client and server.
 
 Features
@@ -11,18 +11,17 @@ Frontend:
 
 React
 Apollo Client
-HTML
-Tailwind CSS
+HTML/CSS
 Backend:
 
 Node.js
 Express
 GraphQL Apollo Server
-MongoDB 
+MongoDB (or your preferred database)
 Getting Started
 Prerequisites
 Node.js and npm installed on your machine.
-
+MongoDB installed and running locally, or use a cloud-based MongoDB service.
 Installation
 Clone the repository:
 
@@ -41,7 +40,7 @@ Copy code
 cd client
 npm install
 
-
+cd ../server
 npm install
 Set up environment variables:
 
@@ -49,13 +48,13 @@ Create a .env file in the server directory.
 Define the following variables:
 makefile
 Copy code
-
+PORT=3001
 MONGODB_URI=your_mongodb_uri
 Start the server:
 
 bash
 Copy code
-
+cd server
 npm start
 Start the client:
 
@@ -74,3 +73,5 @@ This project is licensed under the MIT License.
 Acknowledgements
 Thanks to GraphQL and Apollo for their powerful tools.
 Hat tip to anyone whose code was used.
+Contact
+For any inquiries or support, please contact [your-email@example.com].
